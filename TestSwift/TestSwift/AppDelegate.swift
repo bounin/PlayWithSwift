@@ -71,12 +71,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func testMemoize () -> () {
-        let fibonacci:(Int)->Double = memoize {
-            fibonacci, n in
-            n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
+        var factorial: (Int)->Double = { Double($0) }
+        factorial = memoize { x in x == 0 ? 1.0 : Double(x) * factorial(x - 1) }
+        NSLog("%f", factorial(10))
+
+        var fibonacci: (Int)->Double = { Double($0) }
+        fibonacci = memoize {
+            n in n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
         }
-        
-        println ("\(fibonacci(45)/fibonacci(44))")
+//        let fibonacci:(Int)->Double = memoize {
+//            fibonacci, n in
+//            n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
+//        }
+
+        NSLog("phi = %f", fibonacci(45)/fibonacci(44))
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
@@ -108,21 +116,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
-}
-
-
-// Test printable
-enum Suit : String, Printable {
-    case Hearts="Hearts", Diamonds="Diamonds", Spades="Spades", Clubs="Clubs"
-    var description : String { return "Suit." + self.toRaw() }
-//    var description : String {
-//        switch self {
-//            case .Hearts: return "Hearts"
-//            case .Diamonds: return "Diamond"
-//            case .Spades: return "Spades"
-//            case .Clubs: return "Clubs"
-//        }
-//    }
 }
 

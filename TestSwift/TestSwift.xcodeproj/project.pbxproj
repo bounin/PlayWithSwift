@@ -15,6 +15,7 @@
 		DB242B4719428A9A004C0118 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB242B4619428A9A004C0118 /* Images.xcassets */; };
 		DB242B5319428A9A004C0118 /* TestSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB242B5219428A9A004C0118 /* TestSwiftTests.swift */; };
 		DB242B5D19428C87004C0118 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB242B5C19428C87004C0118 /* Task.swift */; };
+		DB552C00194B695200F1ADDE /* StandardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB552BFF194B695200F1ADDE /* StandardProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		DB242B5119428A9A004C0118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB242B5219428A9A004C0118 /* TestSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftTests.swift; sourceTree = "<group>"; };
 		DB242B5C19428C87004C0118 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DB552BFF194B695200F1ADDE /* StandardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				DB242B4119428A9A004C0118 /* ViewController.swift */,
 				DB242B5C19428C87004C0118 /* Task.swift */,
 				8C66CA71194AC1360047D2D2 /* Singleton.swift */,
+				DB552BFF194B695200F1ADDE /* StandardProtocols.swift */,
 				8C66CA73194AC43C0047D2D2 /* Memoize.swift */,
 				DB242B4319428A9A004C0118 /* Main.storyboard */,
 				DB242B4619428A9A004C0118 /* Images.xcassets */,
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB552C00194B695200F1ADDE /* StandardProtocols.swift in Sources */,
 				DB242B4219428A9A004C0118 /* ViewController.swift in Sources */,
 				8C66CA72194AC1360047D2D2 /* Singleton.swift in Sources */,
 				8C66CA74194AC43C0047D2D2 /* Memoize.swift in Sources */,
