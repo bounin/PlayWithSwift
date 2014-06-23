@@ -71,20 +71,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func testMemoize () -> () {
-        var factorial: (Int)->Double = { Double($0) }
-        factorial = memoize { x in x == 0 ? 1.0 : Double(x) * factorial(x - 1) }
-        NSLog("%f", factorial(10))
+        var factorial: ((Int)->Int64)!
+        factorial = memoize { x in x == 0 ? 1 : Int64(x) * factorial(x - 1) }
+        NSLog("%llu", factorial(10))
 
-        var fibonacci: (Int)->Double = { Double($0) }
-        fibonacci = memoize {
-            n in n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
-        }
-//        let fibonacci:(Int)->Double = memoize {
-//            fibonacci, n in
-//            n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
+//        var fibonacci: ((Int)->Double)!
+//        fibonacci = memoize {
+//            n in n < 2 ? Double(n) : fibonacci(n-1) + fibonacci(n-2)
 //        }
+//        NSLog("phi = %f", fibonacci(45)/fibonacci(44))
 
-        NSLog("phi = %f", fibonacci(45)/fibonacci(44))
+        let fibonacci:(Int)->Int = memoize2 {
+            f, n in
+            n < 2 ? n : f(n-1) + f(n-2)
+        }
+//        NSLog("phi2 = %f", fibonacci2(45)/fibonacci2(44))
+        NSLog("phi = %f", Double(fibonacci(45))/Double(fibonacci(44)))
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
