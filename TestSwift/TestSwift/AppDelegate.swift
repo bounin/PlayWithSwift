@@ -12,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
+    var testNumber:Int = 5
+
     func testTaskAndSingleton () -> () {
         func seriousComputation (sleep_delay:CUnsignedInt) -> Int {
             NSLog("starting serious computation")
@@ -69,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("%d", !answer)
         GlobalVariable.sharedInstance.ping("\(Suit.Clubs)")
     }
-    
+
     func testMemoize () -> () {
         var factorial: ((Int)->Int64)!
         factorial = memoize { x in x == 0 ? 1 : Int64(x) * factorial(x - 1) }
@@ -93,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         testTaskAndSingleton()
         testMemoize()
+        simpleAssert(testNumber % 2 == 0, "testNumber isn't an even number.")
         return true
     }
 
@@ -118,5 +121,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+func simpleAssert(condition: @auto_closure () -> Bool, message: String) {
+    if !condition() {
+        println(message)
+    }
 }
 
