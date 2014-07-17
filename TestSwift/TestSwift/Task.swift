@@ -31,7 +31,7 @@ class Task<R>: VoidTask {
 
     // R[] is a quick and dirty workaround, having R? here causes:
     // error: unimplemented IR generation feature non-fixed class layout
-    var results : R[]
+    var results : [R]
 
     func value () -> R {
         waitUntilDone ()

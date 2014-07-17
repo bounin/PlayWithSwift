@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("you shall not pass")
         }
 
-        for i in 0..5 {
+        for i in 0..<5 {
             async {
                 sleep(1)
                 GlobalVariable.sharedInstance.ping(i.description)
