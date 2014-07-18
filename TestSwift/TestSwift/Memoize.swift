@@ -8,7 +8,7 @@
 import Foundation
 
 func memoize2<T: Hashable, U>( body: ((T)->U, T)->U ) -> (T)->U {
-    var memo = Dictionary<T,U>()
+    var memo = [T:U]()
     var result: ((T)->U)!
     result = { x in
         if let q = memo[x] { return q }
@@ -20,7 +20,7 @@ func memoize2<T: Hashable, U>( body: ((T)->U, T)->U ) -> (T)->U {
 }
 
 func memoize<T: Hashable, U>( body: (T)->U ) -> (T)->U {
-  var memo = Dictionary<T, U>()
+    var memo = [T:U]()
     return { x in
         if let q = memo[x] { return q }
         let r = body(x)
