@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var testNumber:Int = 5
 
     func testTaskAndSingleton () -> () {
-        func seriousComputation (sleep_delay:CUnsignedInt) -> Int {
+        func seriousComputation (sleep_delay:UInt32) -> Int {
             NSLog("starting serious computation")
             sleep(sleep_delay)
             NSLog("finished serious computation")
@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("Ooooo...")
             sleep(5)
             NSLog("you shall not pass")
+            GlobalVariable.defaultInstance.ping("youooo...")
         }
 
         for i in 0..<5 {
