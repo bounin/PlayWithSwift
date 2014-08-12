@@ -8,6 +8,7 @@
 import Foundation
 
 class GlobalVariable {
+    // first method to create singleton
     class var sharedInstance:GlobalVariable {
         //return globalVariableSharedInstance
         struct Static {
@@ -24,7 +25,7 @@ class GlobalVariable {
         NSLog("ping: %@", message)
     }
     
-    init() {
+    private init() {
         NSLog ("GlobalVariable::init")
         sleep(5);
     }
