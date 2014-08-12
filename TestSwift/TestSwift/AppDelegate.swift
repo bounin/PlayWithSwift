@@ -70,11 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         NSLog("%d", !answer)
         GlobalVariable.sharedInstance.ping("\(Suit.Clubs)")
+        GlobalVariable.defaultInstance.ping("12345")
     }
 
     func testMemoize () -> () {
-        var factorial: ((Int)->Int64)!
-        factorial = memoize { x in x == 0 ? 1 : Int64(x) * factorial(x - 1) }
+        let factorial:(Int)->Int64 = memoize { f, x in x == 0 ? 1 : Int64(x) * f(x - 1) }
         NSLog("%llu", factorial(10))
 
 //        var fibonacci: ((Int)->Double)!
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //        NSLog("phi = %f", fibonacci(45)/fibonacci(44))
 
-        let fibonacci:(Int)->Int = memoize2 {
+        let fibonacci:(Int)->Int = memoize {
             f, n in
             n < 2 ? n : f(n-1) + f(n-2)
         }
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-func simpleAssert(condition: @auto_closure () -> Bool, message: String) {
+func simpleAssert(condition: @autoclosure () -> Bool, message: String) {
     if !condition() {
         println(message)
     }

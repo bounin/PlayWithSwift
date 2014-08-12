@@ -16,7 +16,7 @@ class VoidTask {
     }
 
     init(_ task: () -> (), queue: dispatch_queue_t? = nil) {
-        let q = queue ? queue! : dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let q = queue ?? dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         self.group = dispatch_group_create()
         dispatch_group_async(group, q, task)
     }
@@ -69,13 +69,13 @@ func await <R> (task: Task<R>) -> R {
     return task.value ()
 }
 
-@prefix func ! <R> (task: Task<R>) -> R {
+prefix func ! <R> (task: Task<R>) -> R {
     return await(task)
 }
 
-operator infix ~ { }
+infix operator  ~ { }
 
-@infix func ~ <A, R> (f: A -> R, args: A) -> Task<R> {
+func ~ <A, R> (f: A -> R, args: A) -> Task<R> {
     return async(f)(args)
 }
 

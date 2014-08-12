@@ -9,11 +9,15 @@ import Foundation
 
 class GlobalVariable {
     class var sharedInstance:GlobalVariable {
-        //return globalVariableShareInstance
+        //return globalVariableSharedInstance
         struct Static {
             static let instance : GlobalVariable = GlobalVariable()
         }
         return Static.instance
+    }
+    
+    class var defaultInstance:GlobalVariable {
+        return globalVariableSharedInstance
     }
     
     func ping(message:String) {
@@ -26,4 +30,4 @@ class GlobalVariable {
     }
 }
 
-//let globalVariableSharedInstance = GlobalVariable()
+private let globalVariableSharedInstance = GlobalVariable()

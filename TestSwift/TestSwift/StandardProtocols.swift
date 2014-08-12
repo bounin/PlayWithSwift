@@ -21,3 +21,15 @@ enum Suit : String, Printable {
     //    }
 }
 
+//extension Int: BooleanType {
+//    public func boolValue() -> Bool {
+//        return self != 0
+//    }
+//}
+
+//extension Int: BooleanLiteralConvertible {
+//    public static func convertFromBooleanLiteral(value: BooleanLiteralType) -> Int {
+//        return value ? 1 : 0;
+//    }
+//}
+
